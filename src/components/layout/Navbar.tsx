@@ -1,41 +1,36 @@
 import { Button } from "@/components/ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuSeparator,
-    DropdownMenuTrigger
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { NavigationMenu } from "@/components/ui/navigation-menu";
 import {
-    NavigationMenu
-} from "@/components/ui/navigation-menu";
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
 } from "@/components/ui/popover";
-
 
 import { User } from "lucide-react";
 import { Link } from "react-router";
 import Logo from "../../assets/images/logo.png";
 import { ModeToggle } from "./ModeToggler";
 
-const navigationLinks = [
-  { href: "/", label: "Home", role: "PUBLIC" },
-  { href: "/about", label: "About", role: "PUBLIC" },
-  { href: "/feature", label: "Features", role: "PUBLIC" },
-  { href: "/pricing", label: "Pricing", role: "PUBLIC" },
-  { href: "/contact", label: "Contact", role: "PUBLIC" },
-  { href: "/faq", label: "FAQ", role: "PUBLIC" },
-//   { href: "/admin", label: "Dashboard", role: role.ADMIN },
-//   { href: "/user", label: "Dashboard", role: role.USER },
-//   { href: "/agent", label: "Dashboard", role: role.AGENT },
-];
+// const navigationLinks = [
+//   { href: "/", label: "Home", role: "PUBLIC" },
+//   { href: "/about", label: "About", role: "PUBLIC" },
+//   { href: "/feature", label: "Features", role: "PUBLIC" },
+//   { href: "/pricing", label: "Pricing", role: "PUBLIC" },
+//   { href: "/contact", label: "Contact", role: "PUBLIC" },
+//   { href: "/faq", label: "FAQ", role: "PUBLIC" },
+// //   { href: "/admin", label: "Dashboard", role: role.ADMIN },
+// //   { href: "/user", label: "Dashboard", role: role.USER },
+// //   { href: "/agent", label: "Dashboard", role: role.AGENT },
+// ];
 
 export default function Navbar() {
-
-
   return (
     <>
       {/* Top announcement bar */}
@@ -69,9 +64,10 @@ export default function Navbar() {
                   </Button>
                 </PopoverTrigger>
 
-                <PopoverContent align="start" className="w-56 md:hidden">
-              
-                </PopoverContent>
+                <PopoverContent
+                  align="start"
+                  className="w-56 md:hidden"
+                ></PopoverContent>
               </Popover>
 
               {/* Logo */}
@@ -83,46 +79,33 @@ export default function Navbar() {
               </Link>
 
               {/* Desktop Navigation */}
-              <NavigationMenu className="hidden md:flex">
-               
-              </NavigationMenu>
+              <NavigationMenu className="hidden md:flex"></NavigationMenu>
             </div>
 
             {/* RIGHT */}
             <div className="flex items-center gap-4">
-              <ModeToggle />
+              <ModeToggle />) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="rounded-full h-9 px-3 flex items-center gap-2"
+                  ></Button>
+                </DropdownMenuTrigger>
 
-              
-                
-              ) : (
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button
-                      variant="outline"
-                      className="rounded-full h-9 px-3 flex items-center gap-2"
-                    >
-                     
-                    </Button>
-                  </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuSeparator />
 
-                  <DropdownMenuContent align="end" className="w-48">
-                   
-                    <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link to="/profile">
+                      <User className="mr-2 h-4 w-4" />
+                      Profile
+                    </Link>
+                  </DropdownMenuItem>
 
-                   
-
-                    <DropdownMenuItem asChild>
-                      <Link to="/profile">
-                        <User className="mr-2 h-4 w-4" />
-                        Profile
-                      </Link>
-                    </DropdownMenuItem>
-
-                    <DropdownMenuSeparator />
-
-                    
-                  </DropdownMenuContent>
-                </DropdownMenu>
+                  <DropdownMenuSeparator />
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
           </div>
         </div>
