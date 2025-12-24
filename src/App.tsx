@@ -1,7 +1,13 @@
+import { Outlet } from "react-router";
+import CommonLayout from "./components/layout/CommonLayout";
+
 function App() {
   return (
     <>
-      <h1>Welcome to the Digital Wallet Client App!</h1>
+      <CommonLayout>
+        {/* <ScrollToTop /> */}
+        <Outlet />
+      </CommonLayout>
     </>
   );
 }
