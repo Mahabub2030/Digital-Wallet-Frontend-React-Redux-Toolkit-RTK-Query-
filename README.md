@@ -1031,4 +1031,4 @@ Point `VITE_API_URL` to your Express API. This app expects endpoints similar to:
 - All code is TypeScript and Vite-ready.
 
 ```
->>>>>>> 6802c83055121da17a68e578e813b028f3391ba1
+
